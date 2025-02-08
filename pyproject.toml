@@ -16,3 +16,17 @@ dependencies = [
     "pyright",
     "ruff",
 ]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D203",
+    "D213",
+    "S603",
+    "COM812",
+    "S608",
+    "PD901",
+    "PLR2004",
+    "RET504",
+    "FIX004",
+]
