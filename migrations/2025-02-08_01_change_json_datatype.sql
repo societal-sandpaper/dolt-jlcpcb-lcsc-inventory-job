@@ -1,0 +1,5 @@
+ALTER TABLE components 
+CHANGE COLUMN price price JSON NOT NULL;
+
+ALTER TABLE components 
+CHANGE COLUMN extra extra JSON NOT NULL;
