@@ -108,6 +108,15 @@ def load_all_sqlite_tables_into_dolt(sqlite_path: Path, dolt_repo_path: Path) ->
         df = pl.read_database_uri(
             f"SELECT * FROM {table_name}", uri=f"sqlite://{sqlite_path}"
         )
+
+        # Transformations for each table, if applicable.
+        if table_name == "components":
+            # Convert 'seconds since 1970' to datetime.
+            df = df.with_columns(
+                last_on_stock=pl.from_epoch(pl.col("last_on_stock")),
+                last_update=pl.from_epoch(pl.col("last_update")),
+            )
+
         import_polars_df_into_dolt_table(
             dolt_repo_path=dolt_repo_path,
             table_name=table_name,
