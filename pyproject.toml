@@ -1,0 +1,18 @@
+[project]
+name = "dolt-jlcpcb-lcsc-inventory-job"
+version = "0.1.0"
+description = "Data job to push the JLCPCB/LCSC electronic components inventory to DoltHub"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "polars<2",
+    "requests<3",
+    "loguru<1",
+
+    # Polars dependencies
+    "connectorx<1",
+    "pyarrow",
+
+    "pyright",
+    "ruff",
+]
